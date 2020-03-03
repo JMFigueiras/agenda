@@ -1,0 +1,29 @@
+.navbar {
+  width: auto;
+  padding: 1px;
+  margin-top: 1.5px;
+  background-color: $light-blue-color;
+
+  .navbar-nav .nav-link {
+
+    padding: 50px 10px 6px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    font-size: 0.9em;
+    color: #fff;
+
+    &:hover {
+      margin-bottom: -3px;
+      color: #000;
+    }
+  }
+
+  .dropdown-menu {
+    color: $primary-color;
+    background-color: $primary-color-light;
+
+    &:hover {
+      background-color: $primary-color-light;
+    }
+  }
+}
