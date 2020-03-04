@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
-    faTabletAlt, faUsers, faUserFriends, faDatabase, faStickyNote, faCookie
+    faTabletAlt, faUsers, faUserFriends, faDatabase, faStickyNote, faBriefcase, faHome
 } from '@fortawesome/free-solid-svg-icons';
 import head from 'lodash/head';
 import includes from 'lodash/includes';
@@ -18,20 +18,20 @@ const NavItems = ({redirect}) => (
     <Nav className="mr-auto" navbar>
         <NavItem>
             <NavLink onClick={() => redirect('/app')}>
-                <FontAwesomeIcon icon={faTabletAlt}/>
-                &nbsp;App
+                <FontAwesomeIcon icon={faHome}/>
+                &nbsp;Inicio
             </NavLink>
         </NavItem>
         <NavItem>
             <NavLink onClick={() => redirect('/farm')}>
                 <FontAwesomeIcon icon={faUserFriends}/>
-                &nbsp;Farm
+                &nbsp;Contactos
             </NavLink>
         </NavItem>
         <NavItem>
             <NavLink onClick={() => redirect('/countries')}>
-                <FontAwesomeIcon icon={faCookie}/>
-                &nbsp;Paises
+                <FontAwesomeIcon icon={faBriefcase}/>
+                &nbsp;Departamentos
             </NavLink>
         </NavItem>
     </Nav>
