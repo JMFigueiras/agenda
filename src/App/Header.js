@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import logo from 'images/logo-footer.png';
+
 import {
     Nav,
     Navbar,
@@ -31,7 +31,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import IntersectionVisible from 'react-intersection-visible';
 
+import logo from 'images/Logo_Indec.png';
 import NavItems from './Routes/NavItems';
+
 
 class Header extends Component {
     static propTypes = {
@@ -94,7 +96,7 @@ class Header extends Component {
                     onShow={e => this.onShow(e)}
                 >
                     <header className="hidden-print">
-                        <Media object src={logo}/>
+                        <Media object src={logo} class="logo"/>
                         <Navbar expand="lg" fixed={!isVisible ? 'top' : ''}>
                             <NavbarToggler onClick={() => this.toggleNavbar()}/>
                             <Collapse isOpen={this.state.isCollapse} navbar>
