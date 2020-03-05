@@ -1,6 +1,6 @@
-import * as Countries from './countries';
+import * as Contacts from './contacts';
 
 // eslint-disable-next-line import/prefer-default-export
 export default {
-    Countries
+    Contacts
 };
