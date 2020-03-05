@@ -1,4 +1,9 @@
 import React, {PureComponent} from 'react';
+import {
+    Table
+} from 'reactstrap';
+
+import {Link} from 'react-router-dom';
 
 class ContactTable extends PureComponent {
     componentDidMount() {
@@ -9,7 +14,9 @@ class ContactTable extends PureComponent {
         const {contacts} = this.props;
 
         return (
-            <table className="table">
+            <>
+            <Link to="/contacts/new">Nuevo contacto</Link>
+            <Table bordered condensed hover stripped size="sm">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -38,7 +45,8 @@ class ContactTable extends PureComponent {
                         </tr>
                     ))}
                 </tbody>
-            </table>
+            </Table>
+            </>
         );
     }
 }

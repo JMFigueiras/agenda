@@ -6,6 +6,13 @@ class Contacts {
     static fetchContacts() {
         return Http.get(API);
     }
+
+    static submitContact(contact) {
+        if (!contact.id) {
+            return Http.post(API, {...contact});
+        }
+        return Http.put(`${API}/${contact.id}`, {...contact});
+    }
 }
 
 export default Contacts;
