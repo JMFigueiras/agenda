@@ -1,20 +1,15 @@
 import React, {PureComponent} from 'react';
 
 class ContactTable extends PureComponent {
+    componentDidMount() {
+        this.props.fetchContacts();
+    }
+
     render() {
-        const rows = [];
-        const divStyle = {
-            margin: '40px',
-            color: 'solid pink'
-        };
-        /* this.props.contacts.forEach(contact => {
-            if (contact.name.indexOf(this.props.filterText) === -1) {
-                return;
-            }
-            rows.push(<ContactRow contact={contact}/>);
-        }); */
+        const {contacts} = this.props;
+
         return (
-            <table className="table" style={divStyle}>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -28,7 +23,21 @@ class ContactTable extends PureComponent {
                         <th>Notas</th>
                     </tr>
                 </thead>
-                <tbody>{rows}</tbody>
+                <tbody>
+                    {contacts.map(contact => (
+                        <tr>
+                            <td>{contact.firstName}</td>
+                            <td>{contact.lastName}</td>
+                            <td>{contact.email}</td>
+                            <td>{contact.gender}</td>
+                            <td>{contact.birthDate}</td>
+                            <td>{contact.phoneNumber}</td>
+                            <td>{contact.address}</td>
+                            <td>{contact.role}</td>
+                            <td>{contact.notes}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         );
     }

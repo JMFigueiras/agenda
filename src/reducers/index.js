@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import staticData from './staticData';
+import contacts from './contacts';
 
 export default combineReducers({
-    staticData
+    contacts
 });
