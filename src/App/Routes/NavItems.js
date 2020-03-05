@@ -23,13 +23,13 @@ const NavItems = ({redirect}) => (
             </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink onClick={() => redirect('/farm')}>
+            <NavLink onClick={() => redirect('/contacts')}>
                 <FontAwesomeIcon icon={faUserFriends}/>
                 &nbsp;Contactos
             </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink onClick={() => redirect('/countries')}>
+            <NavLink onClick={() => redirect('/departments')}>
                 <FontAwesomeIcon icon={faBriefcase}/>
                 &nbsp;Departamentos
             </NavLink>
