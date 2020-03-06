@@ -1,17 +1,17 @@
 import {connect} from 'react-redux';
 
-import {fetchContactsRequested} from '@actions/contacts';
+import {fetchAssignmentsRequested} from '@actions/assignments';
 import fromState from '@selectors';
 
 import Component from './Component';
 
 // Store Redux - StaticData
 const mapStateToProps = state => ({
-    contacts: fromState.Contacts.getContacts()(state)
+    assignments: fromState.Assignments.getAssignments()(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchContacts: () => dispatch(fetchContactsRequested())
+    fetchAssignments: () => dispatch(fetchAssignmentsRequested())
 });
 
 export default connect(
