@@ -4,8 +4,10 @@ import set from 'lodash/set';
 import map from 'lodash/map';
 
 import {
+    fetchContactRequested,
     submitContactDataRequested,
-    updateContactData
+    updateContactData,
+    fetchContactsSucceeded
 } from '@actions/contacts';
 
 import Component from './Component';
@@ -90,6 +92,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+    fetchContact: id => dispatch(fetchContactRequested(id)),
     submitContactData: () => dispatch(submitContactDataRequested()),
     updateContact: contact => dispatch(updateContactData(contact))
 });

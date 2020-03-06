@@ -42,6 +42,9 @@ class ContactTable extends PureComponent {
                                 <td>{contact.address}</td>
                                 <td>{contact.role}</td>
                                 <td>{contact.notes}</td>
+                                <td>
+                                    <Link to={`/contacts/${contact.id}`}>Edit</Link>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
