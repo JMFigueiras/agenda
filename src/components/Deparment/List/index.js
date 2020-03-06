@@ -1,16 +1,17 @@
 import {connect} from 'react-redux';
-import get from 'lodash/get';
+
+import {fetchContactsRequested} from '@actions/contacts';
+import fromState from '@selectors';
 
 import Component from './Component';
 
 // Store Redux - StaticData
 const mapStateToProps = state => ({
-    /* password: get(state, 'staticData.password', 'Sin Dato'),
-    email: get(state, 'staticData.email', 'Sin Dato') */
+    contacts: fromState.Contacts.getContacts()(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    // submitAction: (email, password) => dispatch(submitAction(email, password))
+    fetchContacts: () => dispatch(fetchContactsRequested())
 });
 
 export default connect(

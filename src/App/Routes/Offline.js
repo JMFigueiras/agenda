@@ -4,7 +4,7 @@ import {HashRouter, Route, Switch} from 'react-router-dom';
 import Home from '@components/Home';
 import Form from '@components/Form/';
 import DepartmentTable from '@components/DepartmentTable';
-import ContactTable from '@components/ContactTable';
+import Contact from '@components/Contact';
 import Error from '@components/Error';
 import Footer from '../Footer';
 import Header from '../Header';
@@ -17,8 +17,8 @@ export default () => (
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/app" component={Home}/>
-                    <Route exact path="/contacts" component={ContactTable}/>
-                    <Route exact path="/departments" component={DepartmentTable}/>
+                    <Route path="/contacts" component={Contact}/>
+                    <Route path="/departments" component={DepartmentTable}/>
                     <Route component={Error}/>
                 </Switch>
             </main>
