@@ -1,0 +1,22 @@
+import Http from './http';
+
+const API = 'api/assignments';
+
+class Assignment {
+    static fetchAssignments() {
+        return Http.get(`${API}/listAll`);
+    }
+
+    static fetchAssignment(id) {
+        return Http.get(`${API}/${id}`);
+    }
+
+    static submitAssignment(assignment) {
+        if (!assignment.id) {
+            return Http.post(API, {...assignment});
+        }
+        return Http.put(`${API}/${assignment.id}`, {...assignment});
+    }
+}
+
+export default Assignment;

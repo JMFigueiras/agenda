@@ -1,28 +1,28 @@
 import {call, put, select} from 'redux-saga/effects';
-import {fetchContactsSucceeded, submitContactDataSucceded, updateContactData} from '@actions/contacts';
-import ContactsService from '@services/contacts';
+import {fetchDepartmentsSucceeded, submitDepartmentDataSucceded, updateDepartmentData} from '@actions/departments';
+import DepartmentsService from '@services/departments';
 
 
 // eslint-disable-next-line import/prefer-default-export
-export function* fetchContacts() {
-    const contacts = yield call(ContactsService.fetchContacts);
+export function* fetchDepartments() {
+    const departments = yield call(DepartmentsService.fetchDepartments);
     yield put(
-        fetchContactsSucceeded(contacts)
+        fetchDepartmentsSucceeded(departments)
     );
 }
 
-export function* fetchContact({id}) {
-    const contact = yield call(ContactsService.fetchContact, id);
+export function* fetchDepartment({id}) {
+    const department = yield call(DepartmentsService.fetchDepartment, id);
     yield put(
-        updateContactData(contact)
+        updateDepartmentData(department)
     );
 }
-export function* submitContactData() {
-    const contact = yield select(state => state.contacts.contact);
-    const result = yield call(ContactsService.submitContact, contact);
+export function* submitDepartmentData() {
+    const department = yield select(state => state.departments.department);
+    const result = yield call(DepartmentsService.submitDepartment, department);
     if (result.success) {
         yield put(
-            submitContactDataSucceded()
+            submitDepartmentDataSucceded()
         );
     }
 }
