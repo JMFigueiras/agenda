@@ -7,6 +7,10 @@ class Contacts {
         return Http.get(API);
     }
 
+    static fetchContact(id) {
+        return Http.get(`${API}/${id}`);
+    }
+
     static submitContact(contact) {
         if (!contact.id) {
             return Http.post(API, {...contact});

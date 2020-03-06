@@ -12,13 +12,6 @@ import {
 } from 'reactstrap';
 
 class FormBuilder extends PureComponent {
-    componentDidMount() {
-        console.log(this.props.match);
-        if (this.props.match.params.id) {
-            this.props.fetchContact(this.props.match.params.id);
-        }
-    }
-
     render() {
         const {
             fields,
