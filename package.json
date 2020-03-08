@@ -4,7 +4,13 @@
   "version": "0.0.1-SNAPSHOT",
   "private": false,
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "start:dev": "webpack-dev-server",
+    "unit-test": "nyc mocha",
+    "lint": "gulp lint",
+    "build": "gulp build",
+    "test": "export NODE_ENV=test && gulp lint && jest",
+    "run:jest": "jest"
   },
   "dependencies": {
     "compression": "^1.7.4",

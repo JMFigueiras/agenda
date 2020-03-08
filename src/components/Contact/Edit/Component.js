@@ -13,7 +13,6 @@ import {
 
 class FormBuilder extends PureComponent {
     componentDidMount() {
-        console.log(this.props.match);
         if (this.props.match.params.id) {
             this.props.fetchContact(this.props.match.params.id);
         }
@@ -25,7 +24,6 @@ class FormBuilder extends PureComponent {
             submitContactData
         } = this.props;
 
-        console.log(fields);
         return (
             <Container fluid>
                 <Form>
@@ -36,6 +34,7 @@ class FormBuilder extends PureComponent {
                                 <br/>
                                 <Input
                                     key={field.control}
+                                    name={field.control}
                                     {...field}
                                 />
                             </Label>
