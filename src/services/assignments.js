@@ -4,7 +4,7 @@ const API = 'api/assignments';
 
 class Assignment {
     static fetchAssignments() {
-        return Http.get(`${API}/listAll`);
+        return Http.get(`${API}`);
     }
 
     static fetchAssignment(id) {

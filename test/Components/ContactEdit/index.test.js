@@ -90,6 +90,7 @@ describe('ContactEdit Component Snapshot', () => {
         component = mountComponent();
         const inputField = component.find(Input).find({name: 'firstName'});
         expect(inputField.exists()).toBe(true);
+        // Busco el último componente, (el hijo)
         inputField.last().simulate('change', {target: {value: 'fake-firstName'}});
         expect(store.getActions()).toEqual([
             {
@@ -106,8 +107,26 @@ describe('ContactEdit Component Snapshot', () => {
         component = mountComponent();
         const inputField = component.find(Input).find({name: 'lastName'});
         expect(inputField.exists()).toBe(true);
+        inputField.last().simulate('change', {target: {value: 'fake'}});
+        expect(store.getActions()).toEqual([
+            {
+                type: UPDATE_CONTACT_DATA,
+                contact: {
+                    ...contact,
+                    lastName: 'fake'
+                }
+            }
+        ]);
+
         inputField.last().simulate('change', {target: {value: 'fake-lastName'}});
         expect(store.getActions()).toEqual([
+            {
+                type: UPDATE_CONTACT_DATA,
+                contact: {
+                    ...contact,
+                    lastName: 'fake'
+                }
+            },
             {
                 type: UPDATE_CONTACT_DATA,
                 contact: {

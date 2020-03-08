@@ -1,6 +1,6 @@
 {
   "name": "test",
-  "description": "test app",
+  "description": "Agenda",
   "version": "0.0.1-SNAPSHOT",
   "private": false,
   "scripts": {

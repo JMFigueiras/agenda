@@ -34,6 +34,12 @@ const NavItems = ({redirect}) => (
                 &nbsp;Departamentos
             </NavLink>
         </NavItem>
+        <NavItem>
+            <NavLink onClick={() => redirect('/assignments')}>
+                <FontAwesomeIcon icon={faBriefcase}/>
+                &nbsp;Asignaciones
+            </NavLink>
+        </NavItem>
     </Nav>
 );
 

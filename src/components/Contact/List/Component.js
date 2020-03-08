@@ -28,6 +28,7 @@ class ContactTable extends PureComponent {
                             <th>Direccion</th>
                             <th>Cargo</th>
                             <th>Notas</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

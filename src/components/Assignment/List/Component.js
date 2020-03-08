@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom';
 class AssignmentTable extends PureComponent {
     componentDidMount() {
         this.props.fetchAssignments();
-        console.log(this.props.fetchAssignments());
     }
 
     render() {
@@ -18,6 +17,11 @@ class AssignmentTable extends PureComponent {
                 <Link to="/assignments/new">Nuevo assignment</Link>
                 <Table bordered condensed hover stripped size="sm">
                     <thead>
+                        <tr>
+                            <th colSpan="4">Contacto</th>
+                            <th colSpan="3">Departamento</th>
+                            <th rowSpan="2">Acciones</th>
+                        </tr>
                         <tr>
                             <th>Nombre</th>
                             <th>Apellido</th>
@@ -38,6 +42,7 @@ class AssignmentTable extends PureComponent {
                                 <td>{assignment.role}</td>
                                 <td>{assignment.name}</td>
                                 <td>{assignment.departmentAddress}</td>
+                                <td>{assignment.description}</td>
                                 <td>
                                     <Link to={`/assignments/${assignment.id}`}>Edit</Link>
                                 </td>
