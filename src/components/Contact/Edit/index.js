@@ -78,7 +78,6 @@ const fields = [
     }
 ];
 
-// Store Redux - StaticData
 const mapStateToProps = state => {
     const contact = get(state, 'contacts.contact', {});
     const cFields = map(fields, field => ({
@@ -103,7 +102,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
         ...field,
         onChange: ({target: {value}}) => updateContact(set(stateProps.contact, field.path, value))
     }));
-    console.log(mergeFields);
     return {
         ...dispatchProps,
         ...ownProps,

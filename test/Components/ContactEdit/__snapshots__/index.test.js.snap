@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactEdit Component Snapshot should mount Component 1`] = `
+<div
+  className="container-fluid"
+>
+  <form
+    className=""
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Nombre
+        <br />
+        <input
+          className="form-control"
+          control="firstName"
+          label="Nombre"
+          name="firstName"
+          onChange={[Function]}
+          path="firstName"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Apellido
+        <br />
+        <input
+          className="form-control"
+          control="lastName"
+          label="Apellido"
+          name="lastName"
+          onChange={[Function]}
+          path="lastName"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Email
+        <br />
+        <input
+          className="form-control"
+          control="email"
+          label="Email"
+          name="email"
+          onChange={[Function]}
+          path="email"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Sexo
+        <br />
+        <input
+          className="form-control"
+          control="gender"
+          label="Sexo"
+          name="gender"
+          onChange={[Function]}
+          path="gender"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Fecha de nacimiento
+        <br />
+        <input
+          className="form-control"
+          control="birthDate"
+          label="Fecha de nacimiento"
+          name="birthDate"
+          onChange={[Function]}
+          path="birthDate"
+          type="date"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Número de teléfono
+        <br />
+        <input
+          className="form-control"
+          control="phoneNumber"
+          label="Número de teléfono"
+          name="phoneNumber"
+          onChange={[Function]}
+          path="phoneNumber"
+          type="phone"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Dirección
+        <br />
+        <input
+          className="form-control"
+          control="address"
+          label="Dirección"
+          name="address"
+          onChange={[Function]}
+          path="address"
+          type="phone"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Cargo
+        <br />
+        <input
+          className="form-control"
+          control="role"
+          label="Cargo"
+          name="role"
+          onChange={[Function]}
+          path="role"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className=""
+      >
+        Notas
+        <br />
+        <input
+          className="form-control"
+          control="notes"
+          label="Notas"
+          name="notes"
+          onChange={[Function]}
+          path="notes"
+          type="text"
+          value=""
+        />
+      </label>
+    </div>
+    <button
+      aria-label={null}
+      className="btn btn-secondary"
+      onClick={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
