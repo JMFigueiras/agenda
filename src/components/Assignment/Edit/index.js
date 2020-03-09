@@ -3,7 +3,11 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import map from 'lodash/map';
 
-import {submitAssignmentDataRequested, updateAssignmentData} from '@actions/assignments';
+import {
+    submitAssignmentDataRequested,
+    updateAssignmentData
+} from '@actions/assignments';
+
 import {fetchContactsRequested} from '@actions/contacts';
 import {fetchDepartmentsRequested} from '@actions/departments';
 import fromState from '@selectors';
@@ -35,12 +39,12 @@ const mapStateToProps = state => {
     /* const contacts = get(state, 'contacts.contacts', []);
     const departments = get(state, 'departments.departments', []); */
 
-    console.log(fromState.Contacts.getContacts()(state));
+    console.log(contacts);
     console.log(departments);
 
     const aFields = map(fields, field => ({
         ...field,
-        value: ''
+        value: null
     }));
     return {
         contacts,
@@ -71,6 +75,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
-    // mergeProps
+    mapDispatchToProps,
+    mergeProps
 )(Component);
