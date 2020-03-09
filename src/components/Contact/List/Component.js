@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import {
-    Table
+    Table,
+    Button,
+    Container
 } from 'reactstrap';
 
 import {Link} from 'react-router-dom';
@@ -15,7 +17,6 @@ class ContactTable extends PureComponent {
 
         return (
             <>
-                <Link to="/contacts/new">Nuevo contacto</Link>
                 <Table bordered condensed hover stripped size="sm">
                     <thead>
                         <tr>
@@ -28,6 +29,7 @@ class ContactTable extends PureComponent {
                             <th>Direccion</th>
                             <th>Cargo</th>
                             <th>Notas</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +51,9 @@ class ContactTable extends PureComponent {
                         ))}
                     </tbody>
                 </Table>
+                <Container>
+                <Button className="float-right" color="secondary" size="lg" href="#/contacts/new">Nuevo contacto</Button>{' '}
+                </Container>
             </>
         );
     }
