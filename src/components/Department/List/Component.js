@@ -11,6 +11,7 @@ import {Link} from 'react-router-dom';
 
 class DepartmentTable extends PureComponent {
     componentDidMount() {
+        console.log('componentDidMount');
         this.props.fetchDepartments();
     }
 

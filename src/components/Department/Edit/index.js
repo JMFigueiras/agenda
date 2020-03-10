@@ -4,11 +4,11 @@ import set from 'lodash/set';
 import map from 'lodash/map';
 
 import {
-    fetchDeparmentRequested,
-    submitDeparmentDataRequested,
-    updateDeparmentData,
-    fetchDeparmentsSucceeded
-} from '@actions/deparments';
+    fetchDepartmentRequested,
+    submitDepartmentDataRequested,
+    updateDepartmentData,
+    fetchDepartmentsSucceeded
+} from '@actions/departments';
 
 import Component from './Component';
 
@@ -38,28 +38,28 @@ const fields = [
 
 // Store Redux - StaticData
 const mapStateToProps = state => {
-    const deparment = get(state, 'deparments.deparment', {});
+    const department = get(state, 'departments.department', {});
     const cFields = map(fields, field => ({
         ...field,
-        value: get(deparment, field.path, '')
+        value: get(department, field.path, '')
     }));
     return {
-        deparment,
+        department,
         fields: cFields
     };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    fetchDeparment: id => dispatch(fetchDeparmentRequested(id)),
-    submitDeparmentData: () => dispatch(submitDeparmentDataRequested()),
-    updateDeparment: Deparment => dispatch(updateDeparmentData(Deparment))
+    fetchDepartment: id => dispatch(fetchDepartmentRequested(id)),
+    submitDepartmentData: () => dispatch(submitDepartmentDataRequested()),
+    updateDepartment: Department => dispatch(updateDepartmentData(Department))
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    const {updateDeparment} = dispatchProps;
+    const {updateDepartment} = dispatchProps;
     const mergeFields = map(stateProps.fields, field => ({
         ...field,
-        onChange: ({target: {value}}) => updateDeparment(set(stateProps.contact, field.path, value))
+        onChange: ({target: {value}}) => updateDepartment(set(stateProps.contact, field.path, value))
     }));
     console.log(mergeFields);
     return {

@@ -4,7 +4,7 @@ import {Switch, Route} from 'react-router-dom';
 import List from './List';
 import Edit from './Edit';
 
-const Deparment = ({match: {path}}) => (
+const Department = ({match: {path}}) => (
     <Switch>
         <Route path={`${path}/new`} component={Edit} exact/>
         <Route path={`${path}/:id`} component={Edit}/>
@@ -13,4 +13,4 @@ const Deparment = ({match: {path}}) => (
 );
 
 
-export default Deparment;
+export default Department;
