@@ -1,7 +1,5 @@
 import {connect} from 'react-redux';
-import get from 'lodash/get';
-import set from 'lodash/set';
-import map from 'lodash/map';
+import {set, map} from 'lodash';
 
 import {
     submitAssignmentDataRequested,
@@ -17,38 +15,41 @@ import Component from './Component';
 const fields = [
     {
         control: 'contacts',
-        label: 'Seleccione un contacto',
-        path: 'contacts',
+        label: 'Contacto',
+        path: 'contact',
+        placeholder: 'Seleccione contacto',
         value: null,
         type: 'select'
     },
     {
         control: 'departments',
-        label: 'Seleccione un departamento',
-        path: 'departments',
+        label: 'Departamento',
+        path: 'department',
+        placeholder: 'Seleccione un departamento',
         value: null,
         type: 'select'
     }
 ];
 
+const getOptions = (control, state) => {
+    if (control === 'contacts') {
+        return fromState.Contacts.getContacts()(state);
+    }
+
+    return fromState.Departments.getDepartments()(state);
+};
+
 // Store Redux - StaticData
 const mapStateToProps = state => {
-    const contacts = fromState.Contacts.getContacts()(state);
-    const departments = fromState.Departments.getDepartments()(state);
-
-    /* const contacts = get(state, 'contacts.contacts', []);
-    const departments = get(state, 'departments.departments', []); */
-
-    console.log(contacts);
-    console.log(departments);
+    const assignment = fromState.Assignments.getAssignments()(state);
 
     const aFields = map(fields, field => ({
         ...field,
-        value: null
+        options: getOptions(field.control, state)
     }));
+
     return {
-        contacts,
-        departments,
+        assignment,
         fields: aFields
     };
 };
@@ -61,10 +62,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
+    console.log('mergeProps', stateProps.assignment);
+
     const {updateAssignment} = dispatchProps;
     const mergeFields = map(stateProps.fields, field => ({
         ...field,
-        onChange: ({target: {value}}) => updateAssignment(set(stateProps.assignment, field.path, value))
+        onChange: ({target: {value}}) => updateAssignment(set({...stateProps.assignment}, field.path, value))
     }));
     return {
         ...dispatchProps,

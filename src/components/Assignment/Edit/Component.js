@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import map from 'lodash/map';
 import {
     Button,
+    Container,
     Form,
     FormGroup,
     Input,
@@ -19,13 +20,11 @@ class FormBuilder extends PureComponent {
     render() {
         const {
             fields,
-            contacts,
-            departments,
             submitAssignmentData
         } = this.props;
 
         return (
-            <div>
+            <Container>
                 <Form>
                     {map(fields, field => (
                         <FormGroup>
@@ -35,35 +34,26 @@ class FormBuilder extends PureComponent {
                                 <Input
                                     key={field.control}
                                     name={field.control}
+                                    type={field.type}
+                                    selected={field.placeholder}
                                     {...field}
                                 >
-                                    {field.control === 'contacts' && contacts.map(contact => (
-                                        <option value={contact.id}>
-                                            {contact.firstName}
-                                            {' '}
-                                            {contact.lastName}
-                                        </option>
-                                    ))}
-
-                                    {field.control === 'departments' && departments.map(department => (
-                                        <option value={department.id}>
-                                            {department.name}
-                                            {' - '}
-                                            {department.address}
+                                    {map(field.options, opt => (
+                                        <option value={opt.id}>
+                                            {opt.name ? `${opt.name} - ${opt.address}` : `${opt.firstName} ${opt.lastName}`}
                                         </option>
                                     ))}
                                 </Input>
                             </Label>
                         </FormGroup>
-
                     ))}
                     <Button
                         onClick={() => submitAssignmentData()}
                     >
-                        Submit
+                        Guardar
                     </Button>
                 </Form>
-            </div>
+            </Container>
         );
     }
 }
