@@ -15,14 +15,14 @@ import Component from './Component';
 const fields = [
     {
         control: 'name',
-        label: 'Description',
+        label: 'Nombre',
         path: 'name',
         value: null,
         type: 'text'
     },
     {
         control: 'description',
-        label: 'Descripcion',
+        label: 'Descripción',
         path: 'description',
         value: null,
         type: 'text'

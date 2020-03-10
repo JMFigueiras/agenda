@@ -5,9 +5,7 @@ import DepartmentsService from '@services/departments';
 
 // eslint-disable-next-line import/prefer-default-export
 export function* fetchDepartments() {
-    console.log('saga');
     const departments = yield call(DepartmentsService.fetchDepartments);
-    console.log(departments);
     yield put(fetchDepartmentsSucceeded(departments));
 }
 

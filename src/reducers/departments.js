@@ -7,7 +7,6 @@ import {
 export default (state = {departments: [], department: {}}, action) => {
     switch (action.type) {
         case FETCH_DEPARTMENTS_SUCCEEDED:
-            console.log(action.departments);
             return {...state, departments: action.departments};
         case SUBMIT_DEPARTMENT_DATA_SUCCEEDED:
             return {...state, success: true, department: {}};
