@@ -20,7 +20,8 @@ class FormBuilder extends PureComponent {
     render() {
         const {
             fields,
-            submitAssignmentData
+            submitAssignmentData,
+            assignment
         } = this.props;
 
         return (
@@ -34,10 +35,9 @@ class FormBuilder extends PureComponent {
                                 <Input
                                     key={field.control}
                                     name={field.control}
-                                    type={field.type}
-                                    selected={field.placeholder}
                                     {...field}
                                 >
+                                    {!field.value && (<option>[Seleccione]</option>)}
                                     {map(field.options, opt => (
                                         <option value={opt.id}>
                                             {opt.name ? `${opt.name} - ${opt.address}` : `${opt.firstName} ${opt.lastName}`}
@@ -49,6 +49,7 @@ class FormBuilder extends PureComponent {
                     ))}
                     <Button
                         onClick={() => submitAssignmentData()}
+                        disabled={!assignment.contact || !assignment.department}
                     >
                         Guardar
                     </Button>

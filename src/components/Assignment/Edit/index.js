@@ -17,7 +17,6 @@ const fields = [
         control: 'contacts',
         label: 'Contacto',
         path: 'contact',
-        placeholder: 'Seleccione contacto',
         value: null,
         type: 'select'
     },
@@ -25,7 +24,6 @@ const fields = [
         control: 'departments',
         label: 'Departamento',
         path: 'department',
-        placeholder: 'Seleccione un departamento',
         value: null,
         type: 'select'
     }
@@ -41,15 +39,14 @@ const getOptions = (control, state) => {
 
 // Store Redux - StaticData
 const mapStateToProps = state => {
-    const assignment = fromState.Assignments.getAssignments()(state);
-
     const aFields = map(fields, field => ({
         ...field,
-        options: getOptions(field.control, state)
+        options: getOptions(field.control, state),
+        value: fromState.Assignments.getAssignment(field.path)(state)
     }));
 
     return {
-        assignment,
+        assignment: fromState.Assignments.getAssignment()(state),
         fields: aFields
     };
 };
@@ -62,8 +59,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-    console.log('mergeProps', stateProps.assignment);
-
     const {updateAssignment} = dispatchProps;
     const mergeFields = map(stateProps.fields, field => ({
         ...field,
@@ -72,7 +67,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...dispatchProps,
         ...ownProps,
-        fields: mergeFields
+        fields: mergeFields,
+        assignment: stateProps.assignment
     };
 };
 

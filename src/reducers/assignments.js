@@ -11,7 +11,7 @@ export default (state = {assignments: [], assignment: {}}, action) => {
         case SUBMIT_ASSIGNMENT_DATA_SUCCEEDED:
             return {...state, success: true, assignment: {}};
         case UPDATE_ASSIGNMENT_DATA:
-            return {...state, assignment: {...state.assignment, ...action.assignment}};
+            return {...state, assignment: action.assignment};
         default:
             return state;
     }
