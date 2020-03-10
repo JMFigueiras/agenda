@@ -7,9 +7,15 @@ import {
     Table
 } from 'reactstrap';
 
+import {Link} from 'react-router-dom';
+
 class DepartmentTable extends PureComponent {
+    componentDidMount() {
+        this.props.fetchDepartments();
+    }
+
     render() {
-        const rows = [];
+        const {departments} = this.props;
         /* this.props.contacts.forEach(contact => {
             if (contact.name.indexOf(this.props.filterText) === -1) {
                 return;

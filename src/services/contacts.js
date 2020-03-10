@@ -1,6 +1,6 @@
 import Http from './http';
 
-const API = 'api/contacts';
+const API = 'api/contacts/';
 
 class Contacts {
     static fetchContacts() {
@@ -8,14 +8,14 @@ class Contacts {
     }
 
     static fetchContact(id) {
-        return Http.get(`${API}/${id}`);
+        return Http.get(`${API}${id}`);
     }
 
     static submitContact(contact) {
         if (!contact.id) {
             return Http.post(API, {...contact});
         }
-        return Http.put(`${API}/${contact.id}`, {...contact});
+        return Http.put(`${API}${contact.id}`, {...contact});
     }
 }
 

@@ -32,6 +32,7 @@ export function* submitContactData() {
 
 export function* fetchDepartments() {
     const departments = yield call(DepartmentsService.fetchDepartments);
+    console.log(departments);
     yield put(fetchDepartmentsSucceeded(departments));
 }
 
