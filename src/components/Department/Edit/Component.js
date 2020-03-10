@@ -15,7 +15,7 @@ class FormBuilder extends PureComponent {
     componentDidMount() {
         console.log(this.props.match);
         if (this.props.match.params.id) {
-            this.props.fetchContact(this.props.match.params.id);
+            this.props.fetchDepartment(this.props.match.params.id);
         }
     }
 
@@ -42,7 +42,7 @@ class FormBuilder extends PureComponent {
                         </FormGroup>
                     ))}
                     <Button
-                        onClick={() => submitContactData()}
+                        onClick={() => submitDepartmentData()}
                     >
                         Submit
                     </Button>
