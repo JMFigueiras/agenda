@@ -24,7 +24,7 @@ class DepartmentTable extends PureComponent {
                     <Col>
                         <Button
                             className="float-right"
-                            color="secondary"
+                            color="primary"
                             size="lg"
                             tag={Link}
                             to="/departments/new"
