@@ -5,4 +5,4 @@ export const getAssignments = id => ({assignments: {assignments}}) => (
     id
         ? filter(assignments, assignment => assignment.id === id) : assignments
 );
-export const getAssignment = name => ({assignments: {assignment}}) => (name ? get(assignment, name, null) : assignment);
+export const getAssignment = id => ({assignments: {assignment}}) => (id ? get(assignment, id, null) : assignment);

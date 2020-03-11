@@ -1,7 +1,8 @@
 import {
     FETCH_ASSIGNMENTS_SUCCEEDED,
     SUBMIT_ASSIGNMENT_DATA_SUCCEEDED,
-    UPDATE_ASSIGNMENT_DATA
+    UPDATE_ASSIGNMENT_DATA,
+    DELETE_ASSIGNMENT_SUCCEEDED
 } from '@actions/assignments';
 
 export default (state = {assignments: [], assignment: {}}, action) => {
@@ -12,6 +13,8 @@ export default (state = {assignments: [], assignment: {}}, action) => {
             return {...state, success: true, assignment: {}};
         case UPDATE_ASSIGNMENT_DATA:
             return {...state, assignment: action.assignment};
+        case DELETE_ASSIGNMENT_SUCCEEDED:
+            return {...state, success: action.success};
         default:
             return state;
     }

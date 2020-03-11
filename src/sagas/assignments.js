@@ -1,5 +1,7 @@
 import {call, put, select} from 'redux-saga/effects';
-import {fetchAssignmentsSucceeded, submitAssignmentDataSucceded, updateAssignmentData} from '@actions/assignments';
+import {
+    fetchAssignmentsSucceeded, submitAssignmentDataSucceded, updateAssignmentData, deleteAssignmentSucceeded
+} from '@actions/assignments';
 import AssignmentsService from '@services/assignments';
 
 
@@ -26,4 +28,11 @@ export function* submitAssignmentData() {
             submitAssignmentDataSucceded()
         );
     }
+}
+
+export function* deleteAssignment({id}) {
+    const success = yield call(AssignmentsService.deleteAssignment, id);
+    yield put(
+        deleteAssignmentSucceeded(success)
+    );
 }

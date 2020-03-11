@@ -19,7 +19,7 @@ class AssignmentTable extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            assignment: null
+            modalFlag: null
         };
     }
 
@@ -27,18 +27,21 @@ class AssignmentTable extends PureComponent {
         this.props.fetchAssignments();
     }
 
-    handleModal(assignment) {
-        console.log(assignment);
-        this.setState(() => ({assignment}));
+    onDelete(assignment) {
+        this.setState(() => ({modalFlag: null}), () => this.props.deleteAssignment(assignment.id));
     }
 
-    onDelete() {
-        this.setState(() => ({assignment: null}), () => alert('se borro'));
+    handleModal(modalFlag, assignment) {
+        this.setState(() => ({modalFlag}));
+        this.props.updateAssignment(assignment);
     }
+
 
     render() {
-        const {assignment} = this.state;
-        const {assignments} = this.props;
+        const {modalFlag} = this.state;
+        const {
+            assignment, assignments
+        } = this.props;
         return (
             <Container>
                 <Row>
@@ -76,22 +79,22 @@ class AssignmentTable extends PureComponent {
                                 </tr>
                             </thead>
                             <tbody>
-                                {assignments.map(assig => (
+                                {assignments.map(assignment => (
                                     <tr>
-                                        <td>{assig.firstName}</td>
-                                        <td>{assig.lastName}</td>
-                                        <td>{assig.address}</td>
-                                        <td>{assig.role}</td>
-                                        <td>{assig.name}</td>
-                                        <td>{assig.departmentAddress}</td>
-                                        <td>{assig.description}</td>
+                                        <td>{assignment.firstName}</td>
+                                        <td>{assignment.lastName}</td>
+                                        <td>{assignment.address}</td>
+                                        <td>{assignment.role}</td>
+                                        <td>{assignment.name}</td>
+                                        <td>{assignment.departmentAddress}</td>
+                                        <td>{assignment.description}</td>
                                         <td className="text-center">
                                             <ButtonGroup>
-                                                <Button tag={Link} to={`/assignments/${assig.id}`}>
+                                                <Button tag={Link} to={`/assignments/${assignment.id}`}>
                                                     <FontAwesomeIcon icon={faEdit}/>
                                                 </Button>
                                                 <Button
-                                                    onClick={() => this.handleModal(assig)}
+                                                    onClick={() => this.handleModal(true, assignment)}
                                                     color="danger"
                                                 >
                                                     <FontAwesomeIcon icon={faTrash}/>
@@ -104,14 +107,14 @@ class AssignmentTable extends PureComponent {
                         </Table>
                     </Col>
                 </Row>
-                {assignment && (
+                {modalFlag && (
                     <ModalConfirm
                         title="Confirme borrado"
                         message="Estas por borrar una Asignacion"
                         onDismiss={() => this.handleModal(null)}
-                        onAccept={() => this.onDelete()}
+                        onAccept={() => this.onDelete(assignment)}
                     >
-                        <div> Algo </div>
+                        <div> Testing </div>
                     </ModalConfirm>
                 )}
             </Container>

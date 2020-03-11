@@ -17,6 +17,10 @@ class Assignment {
         }
         return Http.put(`${API}/${assignment.id}`, {...assignment});
     }
+
+    static deleteAssignment(id) {
+        return Http.delete(`${API}/${id}`, {...id});
+    }
 }
 
 export default Assignment;
