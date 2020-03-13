@@ -38,7 +38,7 @@ const fields = [
         label: 'Sexo',
         path: 'gender',
         value: null,
-        type: 'text'
+        type: 'select'
     },
     {
         control: 'birthDate',
@@ -59,7 +59,7 @@ const fields = [
         label: 'Dirección',
         path: 'address',
         value: null,
-        type: 'phone'
+        type: 'text'
     },
     {
         control: 'role',
@@ -77,15 +77,29 @@ const fields = [
     }
 ];
 
+const genders = [
+    {
+        type: 'Femenino'
+    },
+    {
+        type: 'Masculino'
+    },
+    {
+        type: 'Otro'
+    }
+];
+
 const mapStateToProps = state => {
     const contact = get(state, 'contacts.contact', {});
     const cFields = map(fields, field => ({
         ...field,
         value: get(contact, field.path, '')
     }));
+
     return {
         contact,
-        fields: cFields
+        fields: cFields,
+        genderOptions: genders
     };
 };
 
@@ -104,7 +118,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     return {
         ...dispatchProps,
         ...ownProps,
-        fields: mergeFields
+        fields: mergeFields,
+        genderOptions: genders
     };
 };
 

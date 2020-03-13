@@ -23,8 +23,12 @@ class FormBuilder extends PureComponent {
     render() {
         const {
             fields,
+            genderOptions,
             submitContactData
         } = this.props;
+
+        console.log(fields, 'Campos');
+        console.log(genderOptions, 'genderOptions');
 
         return (
             <Container fluid>
@@ -38,7 +42,13 @@ class FormBuilder extends PureComponent {
                                     key={field.control}
                                     name={field.control}
                                     {...field}
-                                />
+                                >
+                                    {map(genderOptions, gender => (
+                                        <option value={gender.type}>
+                                            {gender.type}
+                                        </option>
+                                    ))}
+                                </Input>
                             </Label>
                         </FormGroup>
                     ))}

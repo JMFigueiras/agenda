@@ -10,7 +10,8 @@
     "lint": "gulp lint",
     "build": "gulp build",
     "test": "export NODE_ENV=test && gulp lint && jest",
-    "run:jest": "jest"
+    "run:jest": "jest",
+    "start:nodemon": "nodemon index.js"
   },
   "dependencies": {
     "compression": "^1.7.4",
