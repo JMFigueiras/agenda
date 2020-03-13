@@ -15,7 +15,7 @@ class FormBuilder extends PureComponent {
     componentDidMount() {
         if (this.props.match.params.id) {
             this.props.fetchDepartment(this.props.match.params.id);
-        }else{
+        } else {
             this.props.updateDepartment({});
         }
     }

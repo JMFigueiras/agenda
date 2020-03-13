@@ -5,7 +5,6 @@ import fromState from '@selectors';
 
 import Component from './Component';
 
-// Store Redux - StaticData
 const mapStateToProps = state => ({
     departments: fromState.Departments.getDepartments()(state)
 });
