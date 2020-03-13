@@ -77,17 +77,7 @@ const fields = [
     }
 ];
 
-const genders = [
-    {
-        type: 'Femenino'
-    },
-    {
-        type: 'Masculino'
-    },
-    {
-        type: 'Otro'
-    }
-];
+const genders = ['Femenino', 'Masculino', 'Otro'];
 
 const mapStateToProps = state => {
     const contact = get(state, 'contacts.contact', {});

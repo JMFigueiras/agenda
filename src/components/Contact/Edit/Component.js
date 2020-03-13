@@ -44,8 +44,8 @@ class FormBuilder extends PureComponent {
                                     {...field}
                                 >
                                     {map(genderOptions, gender => (
-                                        <option value={gender.type}>
-                                            {gender.type}
+                                        <option value={gender}>
+                                            {gender}
                                         </option>
                                     ))}
                                 </Input>
