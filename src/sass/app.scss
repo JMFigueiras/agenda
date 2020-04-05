@@ -9,7 +9,6 @@
 @import "toggle";
 @import "spreadsheets";
 @import "home";
-@import "logo-indec";
 @import "font-awesome-overrides";
 
 small {
@@ -19,6 +18,8 @@ small {
 .pager > .pagination {
   justify-content: center !important;
 }
+
+
 
 h3, h3, h1 {
   margin-bottom: 5px;

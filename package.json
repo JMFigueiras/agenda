@@ -1,10 +1,17 @@
 {
   "name": "test",
-  "description": "test app",
+  "description": "Agenda",
   "version": "0.0.1-SNAPSHOT",
   "private": false,
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "start:dev": "webpack-dev-server",
+    "unit-test": "nyc mocha",
+    "lint": "gulp lint",
+    "build": "gulp build",
+    "test": "export NODE_ENV=test && gulp lint && jest",
+    "run:jest": "jest",
+    "start:nodemon": "nodemon index.js"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -13,6 +20,7 @@
     "helmet": "^3.21.2",
     "jsonschema": "^1.2.5",
     "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
     "serve-static": "^1.14.1",
     "winston": "^3.2.1"
   },
